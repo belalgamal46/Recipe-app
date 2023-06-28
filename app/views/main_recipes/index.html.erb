@@ -1,0 +1,27 @@
+<section id="recipes" class="container text-center">
+  <div class="mb-4">
+    <h1 class="m-0">Recipes list</h1>
+  </div>
+
+  <div>
+    <ul class="list-unstyled">
+      <% @recipes.each do | recipe | %>
+        <li class="d-flex align-items-start column-gap-3 mb-3 border border-primary border-2 p-2">
+          <div class="d-flex flex-column align-items-start row-gap-2">
+            <%= link_to main_recipe_path(recipe), class: "recipe-title p-2 px-3" do %>
+              <h2 class="bold fs-5 m-0"><%= recipe.name.capitalize %></h2>
+            <% end %>
+            <%= link_to "Remove", main_recipe_path(recipe), class: "recipe-title p-2 px-3",data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{recipe.name.capitalize} recipe" } %>
+          </div>
+
+          <div class="p-2 ps-0">
+            <p class="m-0 text-start">
+              <%= recipe.description %>
+            </p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</section>
