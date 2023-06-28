@@ -1,11 +1,11 @@
 class FoodsController < ApplicationController
-  before_action :set_food, only: %i[show edit update destroy]
+  before_action :set_food, only: %i[edit update destroy]
+  before_action :authenticate_user!
 
   def index
     @foods = Food.all
+    @food = Food.new
   end
-
-  def show; end
 
   def new
     @food = Food.new
@@ -15,25 +15,27 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
+    @food.user = current_user
 
     if @food.save
-      redirect_to food_url(@food), notice: 'Food was successfully created.'
+      redirect_to foods_path, notice: 'Food successfully created.'
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
   def update
     if @food.update(food_params)
-      redirect_to food_url(@food), notice: 'Food was successfully updated.'
+      redirect_to foods_url, notice: 'Food was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
+    @food = Food.find(params[:id])
     @food.destroy
-    redirect_to foods_url, notice: 'Food was successfully destroyed.'
+    redirect_to foods_path, notice: 'Food deleted successfully.'
   end
 
   private
