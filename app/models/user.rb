@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :food
   has_many :recipe_foods
+
+  def admin?
+    role == 'admin'
+  end
 end
