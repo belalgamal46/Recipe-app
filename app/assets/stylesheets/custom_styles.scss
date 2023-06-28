@@ -1,3 +1,22 @@
 .custom-heading {
   color: blue;
 }
+
+.custom-table {
+    border: 1px solid black;
+}
+
+.custom-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.custom-table th,
+.custom-table td {
+  border-right: 1px solid #ccc;
+}
+
+.custom-table th:last-child,
+.custom-table td:last-child {
+  border-right: none;
+}
