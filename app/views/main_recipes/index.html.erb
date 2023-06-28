@@ -11,7 +11,9 @@
             <%= link_to main_recipe_path(recipe), class: "recipe-title p-2 px-3" do %>
               <h2 class="bold fs-5 m-0"><%= recipe.name.capitalize %></h2>
             <% end %>
-            <%= link_to "Remove", main_recipe_path(recipe), class: "recipe-title p-2 px-3",data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{recipe.name.capitalize} recipe" } %>
+            <% if can? :manage, recipe %>
+              <%= link_to "Remove", main_recipe_path(recipe), class: "recipe-title p-2 px-3",data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{recipe.name.capitalize} recipe" } %>
+            <% end %>
           </div>
 
           <div class="p-2 ps-0">
