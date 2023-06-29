@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :main_recipes, only: [:index, :show, :destroy, :update]
   resources :foods, except: [:show]
+  resources :recipes
+
+  get '/public_recipes', to: 'public_recipes#index'
 end
