@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "PublicRecipes", type: :feature do
-  scenario "User views the list of public recipes" do
+RSpec.feature 'PublicRecipes', type: :feature do
+  scenario 'User views the list of public recipes' do
     public_recipe1 = FactoryBot.create(:recipe, public: true)
     public_recipe2 = FactoryBot.create(:recipe, public: true)
 
