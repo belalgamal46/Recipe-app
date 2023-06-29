@@ -110,7 +110,6 @@ GEM
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.5)
-    ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -302,7 +301,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.0.5p211
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.4.14
