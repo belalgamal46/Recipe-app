@@ -1,0 +1,8 @@
+<%= form_with url: main_recipe_path(@recipe), model: @recipe, data: { turbo_method: :put, turbolinks: true }, id: "toggle-btn-form" do | f | %>
+  <div class="form-check form-switch">
+    <%= f.check_box :public, class: 'form-check-input', role: "switch", id: "flexSwitchCheckDefault" %>
+    <%= f.label :public, class: 'form-check-label', for: 'flexSwitchCheckDefault' do %>
+      Public
+    <% end %>
+  </div>
+<% end %>
