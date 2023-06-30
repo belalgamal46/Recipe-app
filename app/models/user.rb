@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :foods
   has_many :recipe_foods
 
+  validates_presence_of :name, :email, :password
+  
   def admin?
     role == 'admin'
   end
