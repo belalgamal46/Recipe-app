@@ -2,8 +2,7 @@
 <ul class="list-group">
   <% @users.each do |user| %>
     <li class="list-group-item">
-      <%= link_to user.email, foods_path(user_id: user.id) %>
+      <%= link_to user.name, foods_path(user_id: user.id), class: "list-group-item-action" %>
     </li>
   <% end %>
 </ul>
-

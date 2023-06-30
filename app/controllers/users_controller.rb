@@ -6,7 +6,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+  end
 
   def new
     @user = User.new
@@ -15,8 +17,7 @@ class UsersController < ApplicationController
   def edit; end
 
   def create
-    @user = User.new(user_params)
-
+    @user = User.new(name: params[:user][:name])
     if @user.save
       redirect_to @user, notice: 'User was successfully created.'
     else
@@ -38,10 +39,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = User.find(params[:id])
-  end
 
   def user_params
     params.require(:user).permit(:name)
