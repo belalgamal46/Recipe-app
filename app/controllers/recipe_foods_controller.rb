@@ -24,7 +24,7 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = RecipeFood.find(params[:id])
 
     if @recipe_food.update(recipe_food_params)
-      redirect_to main_recipe_path(@recipe_food.recipe), notice: "Recipe food item was updated successfully"
+      redirect_to main_recipe_path(@recipe_food.recipe), notice: 'Recipe food item was updated successfully'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,9 +34,9 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = RecipeFood.find(params[:id])
 
     if @recipe_food.destroy
-      redirect_to main_recipe_url, notice: "Recipe food was successfully deleted"
+      redirect_to main_recipe_url, notice: 'Recipe food was successfully deleted'
     else
-      redirect_to main_recipe_url, notice: "Recipe food is not deleted"
+      redirect_to main_recipe_url, notice: 'Recipe food is not deleted'
     end
   end
 

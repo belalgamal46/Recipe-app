@@ -21,12 +21,12 @@ class MainRecipesController < ApplicationController
 
     if @recipe.save
       redirect_to main_recipe_path(@recipe), notice: 'Recipe was created successfully'
-    else render :new, status: :unprocessable_entity
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @recipe.update(recipe_params)
@@ -39,7 +39,8 @@ class MainRecipesController < ApplicationController
   def destroy
     if @recipe.destroy
       redirect_to main_recipes_path, notice: 'Recipe was successfully deleted'
-    else redirect_to main_recipe_path(@recipe), notice: 'Something wrong happened recipe is not deleted'
+    else
+      redirect_to main_recipe_path(@recipe), notice: 'Something wrong happened recipe is not deleted'
     end
   end
 
