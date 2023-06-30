@@ -1,0 +1,30 @@
+<section class="container mt-5">
+  <h1 class="text-center mb-3">Shopping list</h1>
+
+  <div class="d-flex justify-content-around">
+    <p>Amount of food items to buy: <%= @food_count %></p>
+    <% food_quantities_prices = @recipe_foods.map { |food| food.quantity * food.food.price } %>
+    <p>Total value of food needed: <%= number_to_currency(food_quantities_prices.sum) %> </p>
+  </div>
+
+  <div class="text-center">
+    <table class="table table-striped custom-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @recipe_foods.group_by{|food| food.food.name}.each do |name, foods| %>
+        <tr>
+          <td><%= name %></td>
+          <td><%= foods.sum(&:quantity) %></td>
+          <td><%= number_to_currency(foods.first.food.price * foods.sum(&:quantity))%></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
