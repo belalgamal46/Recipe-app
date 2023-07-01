@@ -1,27 +1,30 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8 text-center">
-      <h1 class="display-4">Public Recipes</h1>
+<section class="mt-5">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-8 text-center">
+        <h1 class="display-4">Public Recipes</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <% @recipes.each do |recipe| %>
+        <div class="col-md-12 mb-3">
+          <div class="card" style="width: 100%;">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h2 class="card-title"><%= recipe.name %></h2>
+                <div>
+                  <p class="card-text">Food Items: <%= recipe.foods.count %></p>
+                  <p class="card-text">Total Price: $<%= recipe.foods.sum(:price) %></p>
+                </div>
+              </div>
+              <p class="card-text">Prepared by: <%= recipe.user.name %></p>
+              <%= link_to 'View Recipe',  main_recipe_path(recipe), class: 'btn btn-primary mt-auto' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 
-  <div class="row">
-    <% @recipes.each do |recipe| %>
-      <div class="col-md-12 mb-3">
-        <div class="card" style="width: 100%;">
-          <div class="card-body">
-            <div class="d-flex justify-content-between">
-              <h2 class="card-title"><%= recipe.name %></h2>
-              <div>
-                <p class="card-text">Food Items: <%= recipe.foods.count %></p>
-                <p class="card-text">Total Price: $<%= recipe.foods.sum(:price) %></p>
-              </div>
-            </div>
-            <p class="card-text">Prepared by: <%= recipe.user.name %></p>
-            <%= link_to 'View Recipe',  main_recipe_path(recipe), class: 'btn btn-primary mt-auto' %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
+</section>

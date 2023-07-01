@@ -9,7 +9,7 @@
       <% @recipes.each do | recipe | %>
         <li class="d-flex align-items-start column-gap-3 mb-3 border border-primary border-2 p-2">
           <div class="d-flex flex-column align-items-start row-gap-2">
-            <%= link_to main_recipe_path(recipe), class: "recipe-title p-2 px-3" do %>
+            <%= link_to main_recipe_path(recipe), class: "recipe-title text-decoration-none p-2 px-3" do %>
               <h2 class="bold fs-5 m-0"><%= recipe.name.capitalize %></h2>
             <% end %>
             <% if can? :manage, recipe %>

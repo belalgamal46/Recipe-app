@@ -1,19 +1,21 @@
-<div class="d-flex justify-content-end mb-3">
-  <%= link_to "Add Food", new_food_path, class: "btn btn-primary float-right" %>
-</div>
+<section class="container mt-5">
+  <div class="d-flex justify-content-between mb-3 align-items-center">
+    <h1 class="text-center flex-grow-1">Food list</h1>
+    <%= link_to "Add Food", new_food_path, class: "btn btn-primary float-right" %>
+  </div>
 
-<div class="text-center">
-  <table class="table table-striped custom-table">
-    <thead>
+  <div class="text-center">
+    <table class="table table-striped custom-table">
+      <thead>
       <tr>
         <th>Food</th>
         <th>Measurement Unit</th>
         <th>Unit Price&nbsp;$</th>
         <th>Action</th>
       </tr>
-    </thead>
-    <tbody>
-    <% @foods.each do |food| %>
+      </thead>
+      <tbody>
+      <% @foods.each do |food| %>
         <tr>
           <td><%= food.name %></td>
           <td><%= food.measurement_unit %></td>
@@ -23,6 +25,8 @@
           </td>
         </tr>
       <% end %>
-    </tbody>
-  </table>
-</div>
+      </tbody>
+    </table>
+  </div>
+
+</section>
