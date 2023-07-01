@@ -1,11 +1,11 @@
 databases:
-  - name: recipe-app-database
-    databaseName: recipe_app
-    user: recipe_app
+  - name: recipe_app
+    databaseName: recipe_app_4v06
+    user: recipe_app_4v06_user
 
 services:
   - type: web
-    name: recipe-app-database
+    name: recipe_app
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
