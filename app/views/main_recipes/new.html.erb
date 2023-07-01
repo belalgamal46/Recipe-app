@@ -1,0 +1,32 @@
+<section class="mt-5">
+  <h1 class="text-center mb-5">Create Recipe</h1>
+
+  <%= form_with(model: @recipe, url: main_recipes_path(@recipe),class: "container", method: :post) do |form| %>
+    <div class="input-group mb-3">
+      <%= form.text_field :name, class: "form-control", placeholder: "Enter name", required: true %>
+    </div>
+
+    <div class="input-group mb-3">
+      <%= form.text_field :preparation_time, class: "form-control", placeholder: "Enter preparation time example: '00hrs:05min:00sec'", required: true %>
+    </div>
+
+    <div class="input-group mb-3">
+      <%= form.text_field :cooking_time, class: "form-control", placeholder: "Enter cooking time example: '00hrs:05min:00sec'", required: true %>
+    </div>
+
+    <div class="input-group mb-3">
+      <%= form.text_area :description, class: "form-control", placeholder: "Enter description", required: true, size: "70x5" %>
+    </div>
+
+    <div class="form-check form-switch mb-3">
+      <%= form.check_box :public, class: 'form-check-input', role: "switch", id:"flexSwitchCheckDefault" %>
+      <%= form.label :public, class: 'form-check-label', for: 'flexSwitchCheckDefault' do %>
+        Public
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.submit "Create recipe", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</section>
